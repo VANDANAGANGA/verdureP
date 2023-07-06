@@ -1,0 +1,31 @@
+{% extends 'admin/extentpage.html'%}
+{% load static %}
+{%  block content %}
+ {% csrf_token %}       
+<div class="container " style="margin-top: 10rem;">
+    <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">User id</th>
+      <th scope="col">User name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone number</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for stu in user %}
+    <tr>
+      <th scope="row">{{stu.id}}</th>
+      <td>{{ stu.first_name|add:" "|add:stu.last_name }}</td>
+      <td>{{stu.email}}</td>
+      <td>{{stu.mobile}}</td>
+    </tr>
+    {% endfor %}
+  </div>
+</div>
+  {% endblock content %}
+  <!-- Rest of your content goes here -->
+  
+  
+    
+  

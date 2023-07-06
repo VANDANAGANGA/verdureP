@@ -1,0 +1,181 @@
+{% extends 'admin/extentpage.html'%}
+{% load static %}
+
+{% block additional_styles %}
+<style>
+    .custom-font {
+        font-family: "Blinker", sans-serif;
+    }
+    body {
+        background-color: #907676;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding-top: 80px;
+        /* Add top padding to body */
+    }
+
+    .container {
+        max-width: 500px;
+        width: 100%;
+        padding: 20px;
+        background-color: #804646;
+    }
+
+    .image-upload-container {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        border: 2px dashed #ccc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .image-upload-container:hover {
+        border-color: #34A853;
+    }
+
+    .image-upload-container input[type="file"] {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .image-upload-icon {
+        font-size: 80px;
+        color: #888;
+    }
+
+    .image-upload-label {
+        margin-top: 10px;
+        text-align: center;
+        color: #888;
+    }
+
+    .product-count-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+    .product-count-input {
+        width: 50px;
+        text-align: center;
+    }
+
+    .product-count-buttons {
+        display: flex;
+        align-items: center;
+    }
+
+    .product-count-button {
+        border: 1px solid #ccc;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .product-count-button:hover {
+        background-color: #ccc;
+    }
+
+    .product-count-button.minus {
+        color: red;
+        background-color: white;
+    }
+
+    .product-count-button.plus {
+        color: green;
+    }
+
+    .product-count-buttons button {
+        margin-right: 5px;
+    }
+
+    .add-product-button {
+        color: black;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        display: block;
+        margin: 20px auto;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="container">
+        <h2 class="text-center">Add Product</h2>
+        <form method="POST" action="{% url 'addproduct' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="productName">Product Name:</label>
+                <input type="text" class="form-control" id="productName" name="productName">
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea class="form-control" id="description" name="description"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="productName">Category:</label>
+                <select class="form-control" id="category" name="category">
+                    {% for category in categories %}
+                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="productphoto">Product Photo:</label>
+                <input type="file" class="form-control" id="productphoto" name="productphoto" required>
+            </div>
+            <div class="form-group">
+                <label for="product">Size:</label>
+            </div>
+
+            <div class="form-group">
+                <input type="checkbox" id="checkbox-small" name="checkbox-small">
+                <label for="size-small"> SMALL</label><br>
+                <input type="number" class="form-control" id="price-small" name="price-small" min="0"
+                    placeholder="Price for small size"><br>
+                <input type="number" class="form-control" id="offer-price-small" name="offer-price-small" min="0"
+                    placeholder="Offer price for small size"><br>
+                <input type="file" class="form-control" id="image-small" name="image-small"
+                    placeholder="Image for small size"><br>
+                <input type="number" class="form-control" id="productCount-small" min="0" name="productCount-small"
+                    value="1">
+            </div>
+
+            <div class="form-group">
+                <input type="checkbox" id="checkbox-medium" name="checkbox-medium">
+                <label for="size-medium">MEDIUM</label>
+                <input type="number" class="form-control" id="price-medium" name="price-medium" min="0"
+                    placeholder="Price for medium size"><br>
+                <input type="number" class="form-control" id="offer-price-medium" name="offer-price-medium" min="0"
+                    placeholder="Offer price for medium size"><br>
+                <input type="file" class="form-control" id="image-medium" name="image-medium"
+                    placeholder="Image for medium size"><br>
+                <input type="number" class="form-control" id="productCount-medium" min="0" name="productCount-medium"
+                    value="1">
+            </div>
+
+            <div class="form-group">
+                <input type="checkbox" id="checkbox-large" name="checkbox-large">
+                <label for="size-large">LARGE</label><br>
+                <input type="number" class="form-control" id="price-large" name="price-large" min="0"
+                    placeholder="Price for large size"><br>
+                <input type="number" class="form-control" id="offer-price-large" name="offer-price-large" min="0"
+                    placeholder="Offer price for large size"><br>
+                <input type="file" class="form-control" id="image-large" name="image-large"
+                    placeholder="Image for large size"><br>
+                <input type="number" class="form-control" id="productCount-large" min="0" name="productCount-large"
+                    value="1">
+            </div>
+            <button type="submit" class="btn  btn-success add-product-button">Add Product</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}

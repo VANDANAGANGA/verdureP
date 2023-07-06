@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>Verdure - Gardening ;</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/static/alazea-gh-pages/img/core-img/favicon.ico">
+
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="/static/alazea-gh-pages/style.css">
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="preloader-circle"></div>
+        <div class="preloader-img">
+            <img src="/static/alazea-gh-pages/img/core-img/leaf.png" alt="">
+        </div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+
+        <!-- ***** Top Header Area ***** -->
+        <div class="top-header-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="top-header-content d-flex align-items-center justify-content-between">
+                            <!-- Top Header Content -->
+                            <div class="top-header-meta">
+                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="verdure@gmail.com"><i
+                                        class="fa fa-envelope-o" aria-hidden="true"></i> <span>Email:
+                                        verdure@gmail.com</span></a>
+                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="+1 234 122 122"><i
+                                        class="fa fa-phone" aria-hidden="true"></i> <span>Call Us: +1 234 122
+                                        122</span></a>
+                            </div>
+
+                            <!-- Top Header Content -->
+                            <div class="top-header-meta d-flex">
+                                <!-- Login -->
+                                <div class="login">
+                                    {% if user.is_authenticated %}
+                                        <a href="{% url 'usersignout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i> <span>Logout</span></a>
+                                    {% else %}
+                                        <a href="{% url 'signin' %}"><i class="fa fa-user" aria-hidden="true"></i> <span>Login</span></a>
+                                    {% endif %}
+
+                                
+                                </div>
+                                <!-- Cart -->
+                                <div class="cart">
+                                    <a href="{% url 'cart:carts' %}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span>Cart <span
+                                                class="cart-quantity">(1)</span></span></a>
+                                </div>
+                                <div class="login ml-5"> 
+                                    {% if user.is_authenticated %}
+                                        <a href="{% url 'userprofile' %}"><i class="fa fa-user" aria-hidden="true"></i> <span>My Profile</span></a>
+                                    {% endif %}    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ***** Navbar Area ***** -->
+        <div class="alazea-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="alazeaNav">
+
+                        <!-- Nav Brand -->
+                        <a href="/static/alazea-gh-pages/index.html" class="nav-brand"><img
+                                src="/static/alazea-gh-pages/img/core-img/logo3.png" height="300" width="300" alt=""></a>
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Navbar Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="{% url 'welcome' %}">Home</a></li>
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="#">Pages</a>
+                                        <ul class="dropdown">
+                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="about.html">About</a></li>
+                                            <li><a href="shop.html">Shop</a>
+                                                <ul class="dropdown">
+                                                    <li><a href="shop.html">Shop</a></li>
+                                                    <li><a href="shop-details.html">Shop Details</a></li>
+                                                    <li><a href="cart.html">Shopping Cart</a></li>
+                                                    <li><a href="checkout.html">Checkout</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="">Shop</a></li>
+                                    
+                                    <li><a href="#">Contact</a></li>
+                                </ul>
+
+                                <!-- Search Icon -->
+                                <div id="searchIcon">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </div>
+
+                            </div>
+                            <!-- Navbar End -->
+                        </div>
+                    </nav>
+
+                    <!-- Search Form -->
+                    <div class="search-form">
+                        <form action="#" method="get">
+                            <input type="search" name="search" id="search"
+                                placeholder="Type keywords &amp; press enter...">
+                            <button type="submit" class="d-none"></button>
+                        </form>
+                        <!-- Close Icon -->
+                        <div class="closeIcon"><i class="fa fa-times" aria-hidden="true"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area">
+        <!-- Top Breadcrumb Area -->
+        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center"
+            style="background-image:  url(/static/alazea-gh-pages/img/bg-img/24.jpg);">
+            <h2>SHOP DETAILS</h2>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Shop</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Shop Details</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+
+    <!-- ##### Single Product Details Area Start ##### -->
+    <section class="single_product_details_area mb-50">
+        <div class="produts-details--content mb-50">
+            <div class="container">
+                <div class="row justify-content-between">
+
+                    <div class="col-12 col-md-6 col-lg-5">
+                        <div class="single_product_thumb">
+                            <div id="product_details_slider" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner">
+
+                                    <div class="carousel-item active">
+                                        <a class="product-img" href=" " title="Product Image">
+                                            <img id="main-image" value="" class="d-block w-100"
+                                                src="{{products.productsize_set.first.product_photo.url}}" alt="1">
+                                            <script>
+
+                                            </script>
+
+                                        </a>
+                                    </div>
+
+
+                                </div>
+                                <ol class="carousel-indicators">
+                                    {% for size in products.productsize_set.all %}
+                                    <div class="row">
+                                        <div class="col-12" style="text-align: center ;">
+                                            <li onclick="changeImage('{{size.product_photo.url }}','{{size.price}}','{{size.offer_price}}','{{size.id}}')"
+                                                class="{% if forloop.first %}active{% endif %}"
+                                                data-target="#product_details_slider"
+                                                data-slide-to="{{ forloop.counter0 }}"
+                                                style="background-image: url('{{size.product_photo.url }}');"
+                                                id="indicator-{{ forloop.counter }}">
+                                            </li>
+                                        </div>
+                                        <div class="col-12 " style="text-align: center ;">
+                                            <a class=" btn "
+                                                onclick="changeImage('{{size.product_photo.url }}','{{size.price}}','{{size.offer_price}}','{{size.id}}','{{size.quantity}}')">{{size.size}}</a>
+                                        </div>
+                                    </div>
+                                    <form class="cart clearfix d-flex align-items-center" method="post"
+                                        action="{% url 'cart:add_to_cart' id=products.id %}">
+                                        {% csrf_token %}
+                                       
+                
+                                        {% endfor %}
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="single_product_desc">
+                            <h4 class="title">{{products.product_name}}</h4>
+                            <div class="price">
+                                <h4 class="price"
+                                    style="display: inline-block; margin-right: 10px;{% if products.productsize_set.first.offer_price %} text-decoration: line-through; {% endif %}" id="price"
+                                    id="price">{{products.productsize_set.first.price}}</h4>
+                                <h4 class="price" style="display: inline-block;" id="offer_price">{{products.productsize_set.first.offer_price}}</h4>
+                                <input type="text" name="product_size_id" id="imageID" value="{{products.productsize_set.first.id}}" hidden>
+                            </div>
+                            <div class="short_overview">
+                                <p>{{products.description}}</p>
+                            </div>
+                            <p id="error-message" class="error-message text-danger"></p>
+                            <div class="cart--area d-flex flex-wrap align-items-center">
+                                <!-- Add to Cart Form -->
+                               
+                                <input type="text" id="mj" value="{{products.productsize_set.first.quantity}}" hidden>
+                                <div class="quantity">
+                                    <span class="qty-minus mr-3" onclick="decreaseQuantity();"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                                    <input type="number" class="qty-text" style=" text-align: center;" id="qty" step="1" min="1" name="quantity" value="0">
+                                
+                                    <span class="qty-plus ml-3" onclick="increaseQuantity();"><i class="fa fa-plus" aria-hidden="true"></i></span>    
+                                  </div>
+                                  <script>
+
+                                    function decreaseQuantity() {
+                                        var quantityInput = document.getElementById('qty');
+                                        var quantity = parseInt(quantityInput.value);
+                                      
+                                        if (quantity > 1) {
+                                          quantityInput.value = quantity - 1;
+                                          clearErrorMessage();
+                                        }
+                                      }
+                                      
+                                      function increaseQuantity() {
+                                        var quantityInput = document.getElementById('qty');
+                                        var quantity = parseInt(quantityInput.value);
+                                        console.log("qqqqqqq",quantity)
+                                        let ma=document.getElementById('mj').value
+                                    
+                                       
+                                       
+                                        console.log(ma)
+
+                                        if (quantity >= ma) {
+                                          displayErrorMessage("Quantity exceeds available stock");
+                                        } else {
+                                          quantityInput.value = quantity + 1;
+                                          clearErrorMessage();
+                                        }
+                                      }
+                                      
+                                      function displayErrorMessage(message) {
+                                        var errorMessage = document.getElementById('error-message');
+                                        errorMessage.textContent = message;
+                                      }
+                                      
+                                      function clearErrorMessage() {
+                                        var errorMessage = document.getElementById('error-message');
+                                        errorMessage.textContent = "";
+                                      }
+                                      
+                                  </script>
+
+
+                                <button type="submit" name="addtocart" value="5" class="btn alazea-btn ml-15">Add to
+                                    cart</button>
+                                </form>
+
+                                <!-- Wishlist & Compare -->
+                                <div class="wishlist-compare d-flex flex-wrap align-items-center">
+                                    <a href="{% url 'cart:add_to_wishlist' products.id %}" class="wishlist-btn ml-15"><i class="icon_heart_alt"></i></a>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="products--meta">
+
+                                <p><span>Category:</span> <span>{{products.category.category_name}}</span></p>
+                                <p><span>Tags:</span> <span>{{products.category.category_name}}, Green ,{{products.product_name}}</span></p>
+                                <p>
+                                    <span>Share on:</span>
+                                    <span>
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                        <a href="#"><i class="fa fa-pinterest"></i></a>
+                                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                                    </span>
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+          
+            document.getElementById("indicator-{{ forloop.counter }}").style.backgroundImage = "url('{{ size.product_photo.url }}')";
+            let vae="hai"
+            function changeImage(imageUrl, price, offer_price, id,quantity) {
+                document.getElementById("main-image").src = imageUrl;
+                document.getElementById("imageID").value = id;
+                document.getElementById("price").innerHTML = price;
+                document.getElementById("offer_price").innerHTML = offer_price;
+                document.getElementById("mj").value=quantity;
+                console.log("hiii",quantity)
+                clearErrorMessage();
+                document.getElementById("qty").value=0;
+                
+        
+                
+            }
+        </script>
+
+
+
+
+        <!-- ##### Single Product Details Area End ##### -->
+
+        <!-- ##### Related Product Area Start ##### -->
+
+
+
+
+
+
+
+       <!-- ##### Footer Area Start ##### -->
+    <footer class="footer-area bg-img" style="background-image: url(/static/alazea-gh-pages/img/bg-img/3.jpg);">
+        <!-- Main Footer Area -->
+        <div class="main-footer-area">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="single-footer-widget">
+                            <div class="footer-logo mb-30">
+                                <a href="#"><img src="/static/alazea-gh-pages/img/core-img/logo3.png" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="single-footer-widget">
+                            <div class="widget-title">
+                                <h5>QUICK LINK</h5>
+                            </div>
+                            <nav class="widget-nav">
+                                <ul>
+                                    <li><a href="#">Purchase</a></li>
+                                    <li><a href="#">FAQs</a></li>
+                                    <li><a href="#">Payment</a></li>
+                                    <li><a href="">News</a></li>
+                                    <li><a href="#">Return</a></li>
+                                    <li><a href="#">Advertise</a></li>
+                                    <li><a href="#">Shipping</a></li>
+                                    <li><a href="#">Career</a></li>
+                                    <li><a href="#">Orders</a></li>
+                                    <li><a href="#">Policities</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+
+                    
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="single-footer-widget">
+                            <div class="widget-title">
+                                <h5>CONTACT</h5>
+                            </div>
+
+                            <div class="contact-information">
+                                <p><span>Address:</span>MAIN ROAD CHALAKUDY</p>
+                                <p><span>Phone:</span> +1 234 122 122</p>
+                                <p><span>Email:</span> info.verdure@gmail.com</p>
+                                <p><span>Open hours:</span> Mon - Saturday: 8 AM to 9 PM</p>
+                                <p><span>Happy hours:</span> Sat: 2 PM to 4 PM</p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="col-12 col-sm-6 col-lg-3 mt-5">
+                    <div class="single-footer-widget mt-5">
+                        <div class="social-info">
+                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom Area -->
+        <div class="footer-bottom-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="border-line"></div>
+                    </div>
+                    <!-- Copywrite Text -->
+                    <div class="col-12 col-md-6">
+                        <div class="copywrite-text">
+                            <p>&copy; <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved 
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+</p>
+                        </div>
+                    </div>
+                    <!-- Footer Nav -->
+                    <div class="col-12 col-md-6">
+                        <div class="footer-nav">
+                            <nav>
+                                <ul>
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="#">Shop</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ##### Footer Area End ##### -->
+
+        <!-- ##### All Javascript Files ##### -->
+        <!-- jQuery-2.2.4 js -->
+        <script src="/static/alazea-gh-pages/js/jquery/jquery-2.2.4.min.js"></script>
+        <!-- Popper js -->
+        <script src="/static/alazea-gh-pages/js/bootstrap/popper.min.js"></script>
+        <!-- Bootstrap js -->
+        <script src="/static/alazea-gh-pages/js/bootstrap/bootstrap.min.js"></script>
+        <!-- All Plugins js -->
+        <script src="/static/alazea-gh-pages/js/plugins/plugins.js"></script>
+        <!-- Active js -->
+        <script src="/static/alazea-gh-pages/js/active.js"></script>
+</body>
+
+</html>

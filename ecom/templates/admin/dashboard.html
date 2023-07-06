@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  class="light-style layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="/static/assets/"
+  data-template="vertical-menu-template-free"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <title>Verdure-Admin</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/static/assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="/static/assets/vendor/fonts/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="/static/assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="/static/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="/static/assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="/static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <link rel="stylesheet" href="/static/assets/vendor/libs/apex-charts/apex-charts.css" />
+
+    <!-- Page CSS -->
+
+    <!-- Helpers -->
+    <script src="/static/assets/vendor/js/helpers.js"></script>
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="/static/assets/js/config.js"></script>
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        <!-- Menu -->
+
+        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+          <div class="app-brand demo">
+            <a href="index.html" class="app-brand-link">
+              <span class="app-brand-logo demo">
+              
+                  <img src="/static/alazea-gh-pages/img/core-img/logo3.png" width="200" height="200" alt="">
+              
+            </a>
+
+            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+              <i class="bx bx-chevron-left bx-sm align-middle"></i>
+            </a>
+          </div>
+
+          <div class="menu-inner-shadow"></div>
+
+          <ul class="menu-inner py-1">
+            <!-- Dashboard -->
+
+            <li class="menu-item active">
+              <a href="{% url 'home' %}" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Analytics">Dashboard</div>
+              </a>
+            </li>
+
+            <!-- Layouts -->
+            <li class="menu-item ">
+              <a href="{% url 'userdisplay' %}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <div data-i18n="Analytics">User</div>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="{% url 'categorylist' %}" class="menu-link ">
+                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <div data-i18n="Layouts">Category</div>
+              </a>
+            </li>
+
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                <div data-i18n="Account Settings">Products</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="{% url 'addproduct' %}" class="menu-link">
+                    <div data-i18n="Account">Add Product</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="{% url 'product_display' %}" class="menu-link">
+                    <div data-i18n="Notifications">View Products</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="menu-item ">
+              <a href="{% url 'order_display' %}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <div data-i18n="Analytics">Orders</div>
+              </a>
+            </li>
+
+            <li class="menu-item">
+              <a href="{% url 'coupon' %}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx bx-layout"></i>
+                <div data-i18n="Authentications">Coupons</div>
+              </a>
+                </li>
+
+            <li class="menu-item">
+              <a href="{% url 'totalsales' %}" class="menu-link ">
+                <i class="menu-icon tf-icons bx bx bx-layout"></i>
+                <div data-i18n="Authentications">Sales Report</div>
+              </a>
+            </li>
+             
+            <li class="menu-item">
+              <a href="{% url 'adminsignout' %}" class="menu-link ">
+                <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
+                <div data-i18n="Authentications">Logout</div>
+              </a>
+            </li>
+        </aside>
+        <!-- / Menu -->
+
+        <!-- Layout container -->
+        <div class="layout-page">
+          <!-- Navbar -->
+
+          <nav
+            class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+            id="layout-navbar"
+          >
+            <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+              <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+                <i class="bx bx-menu bx-sm"></i>
+              </a>
+            </div>
+
+            <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+              <!-- Search -->
+              <div class="navbar-nav align-items-center">
+                <div class="nav-item d-flex align-items-center">
+                  <i class="bx bx-search fs-4 lh-0"></i>
+                  <input
+                    type="text"
+                    class="form-control border-0 shadow-none"
+                    placeholder="Search..."
+                    aria-label="Search..."
+                  />
+                </div>
+              </div>
+              <!-- /Search -->
+
+              <ul class="navbar-nav flex-row align-items-center ms-auto">
+                <!-- Place this tag where you want the button to render. -->
+                <li class="nav-item lh-1 me-3">
+                  <a
+                    class="btn btn-primary"
+                    href="#"
+                    data-size="large"
+                    data-show-count="true"
+                    aria-label=""
+                    >search</a
+                  >
+                </li>
+
+                <!-- User -->
+                <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                  <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                    <div class="avatar avatar-online">
+                      <img src="/static/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                    </div>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end">
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        <div class="d-flex">
+                          <div class="flex-shrink-0 me-3">
+                            <div class="avatar avatar-online">
+                              <img src="/static/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                            </div>
+                          </div>
+                          <div class="flex-grow-1">
+                            <span class="fw-semibold d-block">John Doe</span>
+                            <small class="text-muted">Admin</small>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <div class="dropdown-divider"></div>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        <i class="bx bx-user me-2"></i>
+                        <span class="align-middle">My Profile</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        <i class="bx bx-cog me-2"></i>
+                        <span class="align-middle">Settings</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        <span class="d-flex align-items-center align-middle">
+                          <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
+                          <span class="flex-grow-1 align-middle">Billing</span>
+                          <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <div class="dropdown-divider"></div>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="auth-login-basic.html">
+                        <i class="bx bx-power-off me-2"></i>
+                        <span class="align-middle">Log Out</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <!--/ User -->
+              </ul>
+            </div>
+          </nav>
+
+          <!-- / Navbar -->
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <div class="row">
+                <div class="col-lg-8 mb-4 order-0">
+                  <div class="card">
+                    <div class="d-flex align-items-end row">
+                      <div class="col-sm-7">
+                        <div class="card-body">
+                          <h5 class="card-title text-primary">Congratulations  🎉</h5>
+                         
+                        </div>
+                      </div>
+                      <div class="col-sm-5 text-center text-sm-left">
+                        <div class="card-body pb-0 px-0 px-md-4">
+                          <img
+                            src="/static/assets/img/illustrations/man-with-laptop-light.png"
+                            height="140"
+                            alt="View Badge User"
+                            data-app-dark-img="illustrations/man-with-laptop-dark.png"
+                            data-app-light-img="illustrations/man-with-laptop-light.png"/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 order-1">
+                  <div class="row">
+                     
+                    <div class="col-lg-6 col-md-12 col-6 mb-4">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="card-title d-flex align-items-start justify-content-between">
+                            <div class="avatar flex-shrink-0">
+                              <img
+                                src="/static/assets/img/icons/unicons/wallet-info.png"
+                                alt="Credit Card"
+                                class="rounded"
+                              />
+                            </div>
+                          </div>
+                          <span>Sales</span>
+                          <h3 class="card-title text-nowrap mb-1">{{ orders|length }}</h3>
+                        </div>
+                      </div>
+                    </div>
+                 
+
+                <div class="col-6 mb-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="card-title d-flex align-items-start justify-content-between">
+                        <div class="avatar flex-shrink-0">
+                          <img src="/static/assets/img/icons/unicons/paypal.png" alt="Credit Card" class="rounded" />
+                        </div>
+                      </div>
+                      <span class="d-block mb-1">Payments</span>
+                      <h3 class="card-title text-nowrap mb-2">₹ {{total_payment_amount}}</h3>
+                    </div>
+                  </div>
+                </div>
+                  </div>
+                </div>
+                <!-- Total Revenue -->
+               
+                  <div class="row">
+                    <!-- Order Statistics -->
+                    <div class="col-md-6 col-lg-4 col-xl-4 order-0 mb-4">
+                      <div class="card h-100">
+                        <div class="card-header d-flex align-items-center justify-content-between pb-0">
+                          <div class="card-title mb-0">
+                            <h5 class="m-0 me-2">Order Statistics</h5>
+                            <small class="text-muted">{{orders|length }} Total Sales</small>
+                          </div>  
+                        </div>
+                        <div class="card-body">
+                          <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div class="d-flex flex-column align-items-center gap-1">
+                              <h2 class="mb-2">₹ {{total_payment_amount}}</h2>
+                              <span>Total Orders</span>
+                              <canvas  id="orderStatusChart" style="width: 200px;height: 200px pl-3"></canvas>
+                            </div>
+                          </div>
+
+                          <ul class="p-0 m-0">
+                            {% for category_total in category_totals %}
+                            <li class="d-flex mb-4 pb-1">
+                              <div class="avatar flex-shrink-0 me-3">
+                                <span class="avatar-initial rounded bg-label-primary"
+                                  ><i class="bx bx-mobile-alt"></i
+                                ></span>
+                              </div>
+                              <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                <div class="me-2">
+                                  <h6 class="mb-0">{{ category_total.product__category__category_name }}</h6>
+                                </div>
+                                <div class="user-progress">
+                                  <small class="fw-semibold"> ₹{{ category_total.total_amount }}</small>
+                                </div>
+                              </div>
+                            </li>
+                            {% endfor %}  
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <!--/ Order Statistics -->
+                    <!-- Transactions -->
+                    <div class="col-md-6 col-lg-4 order-2 mb-4">
+                      <div class="card h-100">
+                        <div class="card-header d-flex align-items-center justify-content-between">
+                          <h5 class="card-title m-0 me-2">Transactions</h5>
+                          <div class="dropdown">
+                            <button
+                              class="btn p-0"
+                              type="button"
+                              id="transactionID"
+                              data-bs-toggle="dropdown"
+                              aria-haspopup="true"
+                              aria-expanded="false"
+                            >
+                              <i class="bx bx-dots-vertical-rounded"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="transactionID">
+                              <a class="dropdown-item" href="javascript:void(0);">Last 28 Days</a>
+                              <a class="dropdown-item" href="javascript:void(0);">Last Month</a>
+                              <a class="dropdown-item" href="javascript:void(0);">Last Year</a>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="card-body">
+                          <ul class="p-0 m-0">
+                            <li class="d-flex mb-4 pb-1">
+                              <div class="avatar flex-shrink-0 me-3">
+                                <img src="/static/assets/img/icons/unicons/paypal.png" alt="User" class="rounded" />
+                              </div>
+                              <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                <div class="me-2">
+                                  <small class="text-muted d-block mb-1">Razopay</small>
+                                  
+                                </div>
+                                <div class="user-progress d-flex align-items-center gap-1">
+                                  <h6 class="mb-0"> ₹ {{paypal_total_amount}}</h6>
+                                  
+                                </div>
+                              </div>
+                            </li>
+                           
+                            <li class="d-flex">
+                              <div class="avatar flex-shrink-0 me-3">
+                                <img src="/static/assets/img/icons/unicons/cc-warning.png" alt="User" class="rounded" />
+                              </div>
+                              <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                <div class="me-2">
+                                  <small class="text-muted d-block mb-1">Cash on Delivery</small>       
+                                </div>
+                                <div class="user-progress d-flex align-items-center gap-1">
+                                  <h6 class="mb-0">₹ {{cod_total_amount}}</h6>
+                                 
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  
+            <!-- / Content -->
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+    <!-- / Layout wrapper -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      
+    var categoryNames = [];
+    var totalAmounts = [];
+
+    {% for category_total in category_totals %}
+      // Add category name and total amount to respective arrays
+      categoryNames.push("{{ category_total.product__category__category_name }}");
+      totalAmounts.push({{ category_total.total_amount }});
+    {% endfor %}
+      var ctx = document.getElementById("orderStatusChart").getContext("2d");
+      var chart = new Chart(ctx, {
+        type: "doughnut",
+        data: {
+          labels: categoryNames,
+          datasets: [
+            {
+              label: "Order Status",
+              data:totalAmounts, // Replace with actual data for order statuses
+              backgroundColor: ["#fff200", "blue", "grey", "#0bd900", "#de0000", "#ff8800"],
+              borderWidth: 0,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          elements: {
+            arc: {
+              borderWidth: 0, // Hide the border of the doughnut slices
+            },
+          },
+          layout: {
+            padding: 10, // Adjust the padding around the chart
+          },
+          plugins: {
+            legend: {
+              display: false, // Hide the legend
+            },
+          },
+          aspectRatio: 1.5, // Adjust the aspect ratio to make the chart narrower
+        },
+      });
+    });
+  </script>
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="/static/assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="/static/assets/vendor/libs/popper/popper.js"></script>
+    <script src="/static/assets/vendor/js/bootstrap.js"></script>
+    <script src="/static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="/static/assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+    <script src="/static/assets/vendor/libs/apex-charts/apexcharts.js"></script>
+
+    <!-- Main JS -->
+    <script src="/static/assets/js/main.js"></script>
+
+    <!-- Page JS -->
+    <script src="/static/assets/js/dashboards-analytics.js"></script>
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+  </body>
+</html>

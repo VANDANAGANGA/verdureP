@@ -1,0 +1,79 @@
+{% extends 'admin/extentpage.html'%}
+{% load static %}
+{% block content %}
+{% csrf_token %}
+  <table class="table mt-5">
+  <thead class="thead-dark">
+    <tr>
+        <th>Product_id</th>
+        <th>Product name</th>
+        <th>Category</th>
+        <th>Discription</th>
+        <th>Images</th>
+        <th>Sizes</th>
+        <th>Prices</th>
+        <th> Offer</th>
+        <th>Quantity</th>
+    </tr>
+</thead>
+<tbody>
+    {% for product in product %}  
+  <tr>
+    <td>{{product.id}}</td>
+    <td>
+        <div class="ms-3">
+          <p class="fw-bold mb-1">{{product.product_name}}</p>
+          <p class="text-muted mb-0"><i class="fa fa-star warning" style="color:gold" aria-hidden="true"></i><i class="fa fa-star" style="color:gold" aria-hidden="true"></i><i class="fa fa-star" style="color:gold" aria-hidden="true"></i><i class="fa fa-star" style="color:gold" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></p>
+        </div>
+    </td>
+    <td>
+      <p class="fw-normal mb-1">{{product.category.category_name}}</p>
+      <p class="text-muted mb-0"></p>
+    </td>
+    <td><p>{{product.description}}</p>
+    </td>
+          
+          <td>
+            {% for size in product.productsize_set.all %}
+            <div class=" d-flex my-1">
+            <img src="{{size.product_photo.url}}" alt="" style="width: 45px; height: 45px" class="rounded-circle border border-success "/>
+            </div>
+            {% endfor %}
+          </td>
+         <td>
+        {% for size in product.productsize_set.all %}
+        <p class="fw-bold mb-1">{{size.size}}</p><br>
+        {% endfor %}
+         </td>
+         <td>
+        {% for size in product.productsize_set.all %}
+        <p class="fw-bold mb-1">₹{{size.price}}</p><br>
+        {% endfor %}
+         </td>
+         <td>
+        {% for size in product.productsize_set.all %}
+        <p class="fw-bold mb-1">₹{{size.offer_price}}</p><br>
+        {% endfor %}
+         </td>
+
+        <td>
+        {% for size in product.productsize_set.all %}
+        <div class="d-flex mb-4 mt-2">
+        <p class="fw-bold mb-1 badge badge-success  ">{{size.quantity}}</p>
+        </div>
+        {% endfor %}
+        </td>  
+</tbody>
+</table>
+</div>
+{% endfor %}
+<div class="d-flex justify-content-center">
+    <a href="{% url 'product_display' %}" class="btn btn-info" >Back to Home</a>
+</div>
+  <!-- Rest of your content goes here -->
+{% endblock content %}
+  
+            
+    
+  
+

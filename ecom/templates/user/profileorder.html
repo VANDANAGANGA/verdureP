@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>Verdure - Gardening ;</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/static/alazea-gh-pages/img/core-img/favicon.ico">
+
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="/static/alazea-gh-pages/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+
+</head>
+<style>
+    .account-settings .user-profile {
+        margin: 0 0 1rem 0;
+        padding-bottom: 1rem;
+        text-align: center;
+    }
+
+    .account-settings .user-profile .user-avatar {
+        margin: 0 0 1rem 0;
+    }
+
+    .account-settings .user-profile .user-avatar img {
+        width: 90px;
+        height: 90px;
+        -webkit-border-radius: 100px;
+        -moz-border-radius: 100px;
+        border-radius: 100px;
+    }
+
+    .address-line {
+        margin: 0;
+        padding: 0;
+    }
+</style>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="preloader-circle"></div>
+        <div class="preloader-img">
+            <img src="/static/alazea-gh-pages/img/core-img/leaf.png" alt="">
+        </div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+
+        <!-- ***** Top Header Area ***** -->
+        <div class="top-header-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="top-header-content d-flex align-items-center justify-content-between">
+                            <!-- Top Header Content -->
+                            <div class="top-header-meta">
+                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="verdure@gmail.com"><i
+                                        class="fa fa-envelope-o" aria-hidden="true"></i> <span>Email:
+                                        verdure@gmail.com</span></a>
+                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="+1 234 122 122"><i
+                                        class="fa fa-phone" aria-hidden="true"></i> <span>Call Us: +1 234 122
+                                        122</span></a>
+                            </div>
+
+                            <!-- Top Header Content -->
+                            <div class="top-header-meta d-flex">
+                                <!-- Login -->
+                                <div class="login">
+                                    {% if user.is_authenticated %}
+                                    <a href="{% url 'usersignout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i>
+                                        <span>Logout</span></a>
+                                    {% else %}
+                                    <a href="{% url 'signin' %}"><i class="fa fa-user" aria-hidden="true"></i>
+                                        <span>Login</span></a>
+                                    {% endif %}
+
+
+                                </div>
+                                <!-- Cart -->
+                                <div class="cart">
+                                    <a href="{% url 'cart:carts' %}"><i class="fa fa-shopping-cart"
+                                            aria-hidden="true"></i> <span>Cart <span
+                                                class="cart-quantity">()</span></span></a>
+                                </div>
+                                <div class="login ml-3">
+                                    {% if user.is_authenticated %}
+                                    <a href=""><i class="fa fa-sign-out" aria-hidden="true"></i> <span>My
+                                            Profile</span></a>
+                                    {% endif %}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ***** Navbar Area ***** -->
+        <div class="alazea-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="alazeaNav">
+
+                        <!-- Nav Brand -->
+                        <a href="/static/alazea-gh-pages/index.html" class="nav-brand"><img
+                                src="/static/alazea-gh-pages/img/core-img/logo3.png" height="300" width="300"
+                                alt=""></a>
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Navbar Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="{% url 'welcome' %}">Home</a></li>
+                                    <li><a href="{% url 'about' %}">About</a></li>
+                                    <li><a href="">Pages</a>
+                                        <ul class="dropdown">
+                                            <li><a href="{% url 'welcome' %}">Home</a></li>
+                                            <li><a href="{% url 'about' %}">About</a></li>
+                                            <li><a href="{% url 'productlist' %}">Shop</a>
+                                                <ul class="dropdown">
+                                                    <li><a href="{% url 'productlist' %}">Shop</a></li>
+                                                    <li><a href="{% url 'productlist' %}">Shop Details</a></li>
+                                                    <li><a href="{% url 'cart:carts' %}">Shopping Cart</a></li>
+                                                    <li><a href="">Checkout</a></li>
+                                                </ul>
+                                            </li>
+                                           
+                                           
+                                            <li><a href="{% url 'getintouch' %}">Contact</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="{% url 'productlist' %}">Shop</a></li>
+                                    <li><a href="{% url 'getintouch' %}">Contact</a></li>
+                                </ul>
+
+
+                                <!-- Search Icon -->
+                                <div id="searchIcon">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </div>
+
+                            </div>
+                            <!-- Navbar End -->
+                        </div>
+                    </nav>
+
+                    <!-- Search Form -->
+                    <div class="search-form">
+                        <form action="#" method="get">
+                            <input type="search" name="search" id="search"
+                                placeholder="Type keywords &amp; press enter...">
+                            <button type="submit" class="d-none"></button>
+                        </form>
+                        <!-- Close Icon -->
+                        <div class="closeIcon"><i class="fa fa-times" aria-hidden="true"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area">
+        <!-- Top Breadcrumb Area -->
+        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center"
+            style="background-image:  url(/static/alazea-gh-pages/img/bg-img/24.jpg);">
+            <h2>My Profile</h2>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">My Profile</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Orders</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+
+
+
+
+
+    <div class="container mt-5  mb-5">
+        <div class="row gutters">
+            <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+                <div class="card h-100">
+                    <div class="card-body">
+                      
+                            <div class="account-settings">
+                                <div class="user-profile">
+                    
+                                    <div class="user-avatar">
+                                        <img id="avatar-img"
+                                             {% if profile_pic %} src="{{ profile_pic.profile_pic.url }}" {% else %} src="/static/image/download.png" {% endif %}
+                                             alt="Profile Picture">
+                                        <input type="file"
+                                               id="avatar-input"
+                                               accept="image/*"
+                                               style="display: none"
+                                               name="profile_pic">
+                                        <label for="avatar-input" class="add-photo-icon">
+                                            <i class="fas fa-camera"></i>
+                                        </label>
+                                    </div>
+                                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                                    <script>
+                                        $(document).ready(function () {
+                                            $('#avatar-input').change(function () {
+                                                var file = this.files[0];
+                                                console.log(file)
+                                                var formData = new FormData();
+                                                formData.append('profile_pic', file);
+                                                var url = "{% url 'add_photo'  %}" ;
+                                                var csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+                                                $.ajax({
+                                                    url: url,
+                                                    type: 'POST',
+                                                    headers: {
+                                                        'X-CSRFToken': csrftoken
+                                                    },
+                                                    data: formData,
+                                                    processData: false,
+                                                    contentType: false,
+                                                    success: function (response) {
+                                                        // Photo updated successfully
+                                                        console.log('Photo updated');
+                                                    },
+                                                    error: function () {
+                                                        // Error updating photo
+                                                        console.log('Error updating photo');
+                                                    }
+                                                });
+                                                
+                                                $('#avatar-img').attr('src', URL.createObjectURL(file));
+                                                $('#avatar-img').on('load', function () {
+                                                    URL.revokeObjectURL($(this).attr('src'));
+                                                });
+                                            });
+                                        });
+                                    </script>
+                                    
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <div class="col text-center">
+                                <h5 class="user-name">{{user.first_name}}{{user.last_name}}</h5>
+                                <h6 class="user-email">{{user.email}}</h6></div>
+                                    </div>
+                                </div>
+                                <div class="row p-4">
+                                    <button type="button" class="btn btn-primary w-100 " value="" onclick="window.location.href='{% url 'passwordreset' %}'"> Change Password</button>
+                               
+                                    <button type="button" class="btn btn-primary w-100 mt-2" value="" onclick="window.location.href='{% url 'userprofile' %}'"> Back</button>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            {% comment %} address add fields {% endcomment %}
+
+            <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="row gutters">
+                            <h6 class="mb-2 text-primary">Order History</h6>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 d-flex">
+                                {% for order in order %}
+                                <div class="card mr-2" style="width: 18rem;">
+                                    <div class="card-body bg-light" style="width: 18rem;
+                                                        border-radius: 10px">
+
+                                        <h5 class="card-title">Order details</h5>
+                                        <p>
+                                            Order id: {{ order.order_id }}<br>
+                                            <input type="text" id="view" value="{{ order.order_id }}" hidden>
+                                            Order date: {{ order.order_date.date}}<br>
+                                            Total Amount: {{ order.payment_amount }} <br>
+                                            Payment Method: {{ order.payment_method }}<br>
+                                            Delivery Status:{{ order.order_status }},<br>
+                                        </p>
+                                        <div class="d-flex align-item-center">
+                                            <form action="{% url 'checkout:cancelorder' %}" method="post">
+                                                {% csrf_token %}
+                                                <input type="" name="order_id" value="{{ order.order_id }}" hidden>
+                                                <button type="submit" class="btn btn-danger mr-2">Cancel</button>
+                                            </form>
+                                            <button type="button" id='view' class="myButton btn btn-primary"
+                                                data-toggle="modal" data-target=".bd-example-modal-lg"
+                                                value="{{ order.order_id }}" onclick="f2('{{ order.order_id }}')">
+                                                VIEW ORDER</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% if forloop.counter|divisibleby:3 %}
+                                    {% endif %}
+                                    {% endfor %}
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- MODAL START -->
+
+            <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog"
+                aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Order details</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="" style=" width:100%; border-radius: 10px; border:#000 solid 1px">
+                                <div class="card-body p-4">
+                                    <div class="d-flex justify-content-between align-items-center mb-4">
+                                        <p class="lead fw-normal mb-0" style="color: #a8729a;">Receipt</p>
+                                        <p class="small text-muted" id="order-id"></p>
+                                    </div>
+                                    <p> To Address</p>
+                                    <p id="name" class="address-line"></p>
+                                    <p id="house-name" class="address-line"></p>
+                                    <p id="street" class="address-line"></p>
+                                    <p id="city" class="address-line"></p>
+                                    <p id="state" class="address-line"></p>
+                                    <p id="country" class="address-line"></p>
+                                    <p id="postal-code" class="address-line"></p>
+                                    <p id="phone-number" class="address-line">Ph:</p>
+
+                                    <div class="card shadow-0 border mb-4">
+                                        <div class="card-body" id="cardProducts">
+                                            <div id="order-items"></div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="d-flex justify-content-between">
+                                        <p class="fw-bold mb-0">Order Details</p>
+                                    </div>
+
+
+                                    <div class="d-flex justify-content-between ">
+                                        <p class="text-muted mb-0"><span class="fw-bold me-4"
+                                                id="payment-method">Payment Method</span></p>
+                                    </div>
+
+                                    <div class="d-flex justify-content-between">
+                                        <p class="text-muted mb-0"><span class="fw-bold me-4"
+                                                id="delivery-status">Delivery Status</span></p>
+                                    </div>
+
+                                    <div class="card-footer border-0 px-1 py-1"
+                                        style="background-color: #a8729a; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px;">
+                                        <h1
+                                            class="d-flex align-items-center justify-content-end text-white text-uppercase mb-0">
+                                            <span class="h2 mb-0 ms-2" id="payment-amount"></span>
+                                        </h1>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    </section>
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+    </div>
+    <!-- MODAL END -->
+    <script>
+        function loadAvatar(event) {
+            var reader = new FileReader();
+            reader.onload = function () {
+                var avatarImg = document.getElementById('avatar-img');
+                avatarImg.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+
+
+
+   <!-- ##### Footer Area Start ##### -->
+   <footer class="footer-area bg-img" style="background-image: url(/static/alazea-gh-pages/img/bg-img/3.jpg);">
+    <!-- Main Footer Area -->
+    <div class="main-footer-area">
+        <div class="container">
+            <div class="row">
+
+                <!-- Single Footer Widget -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-footer-widget">
+                        <div class="footer-logo mb-30">
+                            <a href="#"><img src="/static/alazea-gh-pages/img/core-img/logo3.png" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Footer Widget -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-footer-widget">
+                        <div class="widget-title">
+                            <h5>QUICK LINK</h5>
+                        </div>
+                        <nav class="widget-nav">
+                            <ul>
+                                <li><a href="#">Purchase</a></li>
+                                <li><a href="#">FAQs</a></li>
+                                <li><a href="#">Payment</a></li>
+                                <li><a href="">News</a></li>
+                                <li><a href="#">Return</a></li>
+                                <li><a href="#">Advertise</a></li>
+                                <li><a href="#">Shipping</a></li>
+                                <li><a href="#">Career</a></li>
+                                <li><a href="#">Orders</a></li>
+                                <li><a href="#">Policities</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                
+                <!-- Single Footer Widget -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-footer-widget">
+                        <div class="widget-title">
+                            <h5>CONTACT</h5>
+                        </div>
+
+                        <div class="contact-information">
+                            <p><span>Address:</span>MAIN ROAD CHALAKUDY</p>
+                            <p><span>Phone:</span> +1 234 122 122</p>
+                            <p><span>Email:</span> info.verdure@gmail.com</p>
+                            <p><span>Open hours:</span> Mon - Saturday: 8 AM to 9 PM</p>
+                            <p><span>Happy hours:</span> Sat: 2 PM to 4 PM</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-12 col-sm-6 col-lg-3 mt-5">
+                <div class="single-footer-widget mt-5">
+                    <div class="social-info">
+                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Footer Bottom Area -->
+    <div class="footer-bottom-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="border-line"></div>
+                </div>
+                <!-- Copywrite Text -->
+                <div class="col-12 col-md-6">
+                    <div class="copywrite-text">
+                        <p>&copy; <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved 
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+</p>
+                    </div>
+                </div>
+                <!-- Footer Nav -->
+                <div class="col-12 col-md-6">
+                    <div class="footer-nav">
+                        <nav>
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Shop</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- ##### Footer Area End ##### -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <!-- Include Bootstrap JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- ##### All Javascript Files ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="/static/alazea-gh-pages/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="/static/alazea-gh-pages/js/bootstrap/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="/static/alazea-gh-pages/js/bootstrap/bootstrap.min.js"></script>
+    <!-- All Plugins js -->
+    <script src="/static/alazea-gh-pages/js/plugins/plugins.js"></script>
+    <!-- Active js -->
+    <script src="/static/alazea-gh-pages/js/active.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <script>
+            
+            function f2(button) {
+                var orderId = button;
+                console.log(orderId)
+                var url = "{% url 'checkout:order_details' 0 %}".replace('0', orderId);
+                  // Update the URL to match your Django view URL
+                    $.ajax({
+                        url: url,
+                        type: 'GET',
+                        success: function (response) {
+                            $('#order-id').text('Order id: ' + response.order_id);
+                            console.log(response.order_id)
+                            $('#order-date').text('Order date: ' + response.order_date);
+                            $('#payment-amount').text('Total Amount: ' + response.payment_amount);
+                            $('#payment-method').text('Payment Method: ' + response.payment_method);
+                            $('#delivery-status').text('Order Status: ' + response.order_status);
+
+                            var addressData = response.address;
+                            $('#name').text(addressData.name);
+                            $('#phone-number').text(addressData.phone_number);
+                            $('#house-name').text(addressData.house_name);
+                            $('#street').text(addressData.street);
+                            $('#city').text(addressData.city);
+                            $('#state').text(addressData.state);
+                            $('#country').text(addressData.country);
+                            $('#postal-code').text(addressData.postal_code);
+
+                            console.log("response from",response)
+                            var orderItemsHtml = '';
+                            var returnButtonHtml = '';
+
+                            for (var i = 0; i < response.order_items.length; i++) {
+
+                                console.log(response.order_items[i].product_name)
+                                var item = response.order_items[i];
+                                var cancelButtonHtml = '';
+                                var returnButtonHtml = '';
+                                if (item.order_status === 'Cancelled' || item.order_status === 'Delivered' || item.order_status === 'Returned') {
+                                    cancelButtonHtml = '';
+                                }
+                                else {
+                                    cancelButtonHtml = `
+                                        <form action="{% url 'checkout:cancelorderitem' %}" method="post">
+                                            {% csrf_token %}
+                                            <input type="number" name="itemid" value="${item.id}" hidden>
+                                            <input type=""  name="order_id"  value="${orderId}" hidden>
+                                            <button type="submit" class="btn btn-danger">Cancel</button>
+                                        </form>
+                                    `;
+                                }
+                                if (item.order_status === 'Delivered') {
+                                    returnButtonHtml = `
+                                    <form action="{% url 'checkout:returnproduct' %}" method="post">
+                                        {% csrf_token %}
+                                        <input type="number" name="itemid" value="${item.id}" hidden>
+                                        <input type=""  name="order_id"  value="${orderId}" hidden>
+                                        <button type="submit" class="btn btn-primary">Retrun</button>
+                                    </form>
+                                `;
+                                }
+
+                                var itemHtml = `
+                                <div class="row" >
+            <div class="col-md-2 mb-2">
+                <img src="${item.product_image}" class="img-fluid" alt="Phone">
+                
+            </div>
+            <div class="col-md-3" text-center d-flex justify-content-center align-items-center>
+                <p class="text-muted mb-0">${item.product_name}</p>
+            </div>
+
+            <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                <p class="text-muted mb-0">${item.product_quantity}</p>
+            </div>
+            <div class="col-md-1 mr-2 text-center d-flex justify-content-center align-items-center">
+                <p class="text-muted mb-0 small">${item.product_price}</p>
+            </div>
+            <div class="col-md-1 mr-2 text-center d-flex justify-content-center align-items-center">
+                <p class="text-muted mb-0 small">${item.order_status}</p>
+            </div>
+            <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                
+                ${cancelButtonHtml}
+                ${returnButtonHtml}
+               
+            </div>
+        </div>
+    `;
+                                orderItemsHtml += itemHtml;
+                            }
+                            $('#order-items').html(orderItemsHtml);
+
+                            $('#orderModal').modal('show');
+                        },
+                        error: function (xhr, status, error) {
+                            console.log(error);
+                        }
+                    });
+                
+            
+        }
+    
+    </script>
+
+</body>
+
+</html>
