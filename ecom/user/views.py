@@ -79,7 +79,7 @@ def signin(request):
            return redirect("productlist")
         else:
            messages.warning(request, "Email or password is incorrect!!!")
-    return render(request,'user\signin.html')    
+    return render(request,'user/signin.html')    
 
 @never_cache
 def home(request):
