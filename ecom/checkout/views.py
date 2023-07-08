@@ -19,7 +19,11 @@ def checkout(request):
     cart=Cart.objects.get(user=user)if user else None
     cart_items =CartItem.objects.filter(cart__user=user)
     address=ProfileAddress.objects.filter(user=user)
-    balance=Wallet.objects.get(user=user)
+    try:
+        balance = Wallet.objects.get(user=user)
+    except Wallet.DoesNotExist:
+        balance = None
+    
     context ={
          'cart_items':cart_items,
          'cart':cart,

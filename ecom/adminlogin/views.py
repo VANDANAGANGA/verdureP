@@ -121,7 +121,7 @@ def add_category(request):
         else:
             category = Category.objects.create(category_name=category_name)
             stu=Category.objects.all()
-            return render(request,'admin\categorylist.html',{'stu':stu})  # Redirect to category list page
+            return render(request,'admin/categorylist.html',{'stu':stu})  # Redirect to category list page
 
     return render(request, 'admin/categorylist.html')
 
@@ -141,7 +141,7 @@ def addproduct(request):
         image = request.FILES.get('productphoto')
         sizes = ['small', 'medium', 'large']
         if Product.objects.filter(product_name=product_name):
-            return render(request,'admin\product_add.html')
+            return render(request,'admin/product_add.html')
         else:
         # Create the product object
              if image:
@@ -164,13 +164,13 @@ def addproduct(request):
 
         # Redirect to a success page or perform any additional actions
 
-    return render(request, 'admin\product_add.html',{'categories':categories})
+    return render(request, 'admin/product_add.html',{'categories':categories})
         # Redirect to a success page or perform any additional actions
 def product_display(request):
     stu=Category.objects.all()
     products=Product.objects.all()
     product_sizes = ProductSize.objects.all()
-    return render(request,'admin\productlist.html',{'products':products})
+    return render(request,'admin/productlist.html',{'products':products})
 
 def search_product(request):
     if request.method=='POST':
@@ -250,7 +250,7 @@ def order_display(request):
          'order':order,
          'order_items':order_items
     }
-    return render(request,'admin\order.html',context) 
+    return render(request,'admin/order.html',context) 
 
 
 
@@ -261,7 +261,7 @@ def coupon(request):
         'coupons':coupons,
         'category':category,
     }
-    return render(request,'admin\coupon.html',context) 
+    return render(request,'admin/coupon.html',context) 
 
 def add_coupon(request):
     if request.method=='POST':
